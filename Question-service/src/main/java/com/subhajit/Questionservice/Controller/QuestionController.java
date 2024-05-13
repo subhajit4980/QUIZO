@@ -5,7 +5,6 @@ import com.subhajit.Questionservice.Model.QuestionWrapper;
 import com.subhajit.Questionservice.Model.Response;
 import com.subhajit.Questionservice.Service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +25,10 @@ public class QuestionController {
     @GetMapping("category/{category}")
     public ResponseEntity<List<Question>> getQuestionsByCategory(@PathVariable String category){
         return questionService.getQuestionsByCategory(category);
+    }
+  @GetMapping("topic/{topic}")
+    public ResponseEntity<List<Question>> getQuestionsByTopic(@PathVariable String topic){
+        return questionService.getQuestionsByTopic(topic);
     }
 
     @PostMapping("add")

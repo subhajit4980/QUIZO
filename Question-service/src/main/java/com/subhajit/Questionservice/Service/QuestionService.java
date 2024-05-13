@@ -35,6 +35,15 @@ public class QuestionService {
         return new ResponseEntity<>(new ArrayList<>(), HttpStatus.BAD_REQUEST);
 
     }
+    public ResponseEntity<List<Question>> getQuestionsByTopic(String topic) {
+        try {
+            return new ResponseEntity<>(questionDao.findByTopic(topic),HttpStatus.OK);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return new ResponseEntity<>(new ArrayList<>(), HttpStatus.BAD_REQUEST);
+
+    }
 
     public ResponseEntity<String> addQuestion(Question question) {
         questionDao.save(question);
