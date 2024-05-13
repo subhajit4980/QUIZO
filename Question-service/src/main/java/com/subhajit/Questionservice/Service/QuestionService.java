@@ -64,7 +64,7 @@ public class QuestionService {
         questionDao.save(updateQuestion);
         return new ResponseEntity<>("question updated",HttpStatus.OK);
     }
-    public ResponseEntity<List<Integer>> getQuestionsForQuiz(String categoryName, Integer numOfQuestions) {
+    public ResponseEntity<List<Integer>> getQuestionsForQuiz(String categoryName, int numOfQuestions) {
         List<Integer> questions = questionDao.findRandomQuestionsByCategory(categoryName, numOfQuestions);
         return new ResponseEntity<>(questions, HttpStatus.OK);
     }

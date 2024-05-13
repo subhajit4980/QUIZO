@@ -18,9 +18,6 @@ public class QuestionController {
     @Autowired
     QuestionService questionService;
 
-    @Autowired
-    Environment environment;
-
     @GetMapping("allQuestions")
     public ResponseEntity<List<Question>> getAllQuestions(){
         return questionService.getAllQuestions();
@@ -37,7 +34,7 @@ public class QuestionController {
     }
     @PutMapping("update")
     public ResponseEntity<String> updateQuestion(@RequestBody Question question){
-
+        return questionService.updateQuestion(question);
     }
     //generate the list of id of the questions by category and required number of questions
     @GetMapping("generate")
