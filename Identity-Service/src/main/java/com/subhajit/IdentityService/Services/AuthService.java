@@ -81,4 +81,8 @@ public class AuthService {
             throw new UserException(HttpStatus.BAD_REQUEST,"Wrong Credentials Provided");
         }
     }
+    public boolean isExpired(String token)
+    {
+        return jwtUtils.isTokenExpired(token);
+    }
 }

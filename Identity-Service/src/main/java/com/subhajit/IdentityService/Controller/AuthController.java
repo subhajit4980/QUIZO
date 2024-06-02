@@ -24,5 +24,9 @@ public class AuthController {
     public ResponseEntity<?> signInUser(@RequestBody SignInRequest request){
         return authService.authenticate(request);
     }
+    @PostMapping("/validate")
+    public ResponseEntity<?> validate(@RequestParam String token){
+        return ResponseEntity.ok(authService.isExpired(token));
+    }
 
 }

@@ -16,11 +16,17 @@ spring:
           uri: lb://QUIZ-SERVICE
           predicates:
             - Path=/quiz/**  # Example predicate to match requests starting with /quiz
+          filters:
+            - AuthenticationFilter
         - id: QUESTION-SERVICE
           uri: lb://QUESTION-SERVICE
           predicates:
             - Path=/question/**  # Example predicate to match requests starting with /question
+          filters:
+            - AuthenticationFilter
         - id: IDENTITY-SERVICE
           uri: lb://IDENTITY-SERVICE
           predicates:
             - Path=/auth/** # Example predicate to match requests
+          filters:
+            - AuthenticationFilter

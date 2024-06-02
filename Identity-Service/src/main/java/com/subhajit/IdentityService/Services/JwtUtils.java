@@ -48,7 +48,7 @@ public class JwtUtils {
         return String.valueOf(claims.get("password"));
     }
 
-    private boolean isTokenExpired(String token) {
+    public boolean isTokenExpired(String token) {
         return claims(token).getExpiration().before(new Date());
     }
 
